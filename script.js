@@ -24,8 +24,10 @@ function getPlayerChoice(){
         return 0;
     }else if(playerChoice=="paper"){
         return 1;
-    }else{
+    }else if(playerChoice=="scissors"){
         return 2;
+    }else{
+        return -1;
     }
 
 }
