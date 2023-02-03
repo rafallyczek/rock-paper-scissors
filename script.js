@@ -12,7 +12,7 @@ function getComputerChoice(){
 }
 function getPlayerChoice(){
 
-    let playerChoice = prompt("What is your choice?");
+    let playerChoice = prompt("What is your choice? (type rock, paper or scissors)");
     
     if(playerChoice){
         playerChoice = playerChoice.toLowerCase();
@@ -75,6 +75,7 @@ function addPointsToWinnerScore(winner){
 }
 function game(){
 
+    console.clear();
     playerScore = 0;
     computerScore = 0;
 
@@ -96,4 +97,3 @@ function game(){
     }
 
 }
-game();
