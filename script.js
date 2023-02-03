@@ -31,35 +31,31 @@ function getPlayerChoice(){
 }
 function playRound(playerChoice,computerChoice){
 
-    if(playerChoice==0){
+    if(playerChoice==computerChoice){
+        console.log("%cIt's a tie!","color: goldenrod");
+    }else if(playerChoice==0){
         if(computerChoice==1){
             console.log("%cYou Lose! Paper beats Rock.","color: red");
-            addPoints(0);
-        }else if(computerChoice==2){
-            console.log("%cYou Win! Scissors beats Rock.","color: green");
-            addPoints(1);
+            addPointsToWinnerScore(0);
         }else{
-            console.log("%cIt's a tie!","color: goldenrod");
+            console.log("%cYou Win! Scissors beats Rock.","color: green");
+            addPointsToWinnerScore(1);
         }
     }else if(playerChoice==1){
         if(computerChoice==0){
             console.log("%cYou Win! Paper beats Rock.","color: green");
-            addPoints(1);
-        }else if(computerChoice==2){
-            console.log("%cYou Lose! Scissors beats Paper.","color: red");
-            addPoints(0);
+            addPointsToWinnerScore(1);
         }else{
-            console.log("%cIt's a tie!","color: goldenrod");
+            console.log("%cYou Lose! Scissors beats Paper.","color: red");
+            addPointsToWinnerScore(0);
         }
     }else if(playerChoice==2){
         if(computerChoice==0){
             console.log("%cYou Lose! Rock beats Scissors.","color: red");
-            addPoints(0);
-        }else if(computerChoice==1){
-            console.log("%cYou Win! Scissors beats Paper.","color: green");
-            addPoints(1);
+            addPointsToWinnerScore(0);
         }else{
-            console.log("%cIt's a tie!","color: goldenrod");
+            console.log("%cYou Win! Scissors beats Paper.","color: green");
+            addPointsToWinnerScore(1);
         }
     }else{
         console.log("Invalid input! No point's added.");
@@ -68,7 +64,7 @@ function playRound(playerChoice,computerChoice){
 }
 // 0 equals computer-win
 // 1 equals player-win
-function addPoints(winner){
+function addPointsToWinnerScore(winner){
 
     if(winner==0){
         computerScore++;
