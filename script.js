@@ -1,6 +1,10 @@
-// 0 equals Rock
-// 1 equals Paper
-// 2 equals Scissors
+const ROCK = 0;
+const PAPER = 1;
+const SCISSORS = 2;
+const INVALID_INPUT = -1;
+
+const COMPUTER_WIN = 0;
+const PLAYER_WIN = 1;
 
 let playerScore;
 let computerScore;
@@ -12,22 +16,22 @@ function getComputerChoice(){
 }
 function getPlayerChoice(){
 
-    let playerChoice = prompt("What is your choice? (type rock, paper or scissors)");
+    let playerChoice = prompt("What is your choice? (type: rock, paper or scissors)");
     
     if(playerChoice){
         playerChoice = playerChoice.toLowerCase();
     }else{
-        return -1;
+        return INVALID_INPUT;
     }
 
     if(playerChoice=="rock"){
-        return 0;
+        return ROCK;
     }else if(playerChoice=="paper"){
-        return 1;
+        return PAPER;
     }else if(playerChoice=="scissors"){
-        return 2;
+        return SCISSORS;
     }else{
-        return -1;
+        return INVALID_INPUT;
     }
 
 }
@@ -35,40 +39,38 @@ function playRound(playerChoice,computerChoice){
 
     if(playerChoice==computerChoice){
         console.log("%cIt's a tie!","color: goldenrod");
-    }else if(playerChoice==0){
-        if(computerChoice==1){
+    }else if(playerChoice==ROCK){
+        if(computerChoice==PAPER){
             console.log("%cYou Lose! Paper beats Rock.","color: red");
-            addPointsToWinnerScore(0);
+            chooseWinner(COMPUTER_WIN);
         }else{
-            console.log("%cYou Win! Scissors beats Rock.","color: green");
-            addPointsToWinnerScore(1);
+            console.log("%cYou Win! Rock beats Scissors.","color: green");
+            chooseWinner(PLAYER_WIN);
         }
-    }else if(playerChoice==1){
-        if(computerChoice==0){
+    }else if(playerChoice==PAPER){
+        if(computerChoice==ROCK){
             console.log("%cYou Win! Paper beats Rock.","color: green");
-            addPointsToWinnerScore(1);
+            chooseWinner(PLAYER_WIN);
         }else{
             console.log("%cYou Lose! Scissors beats Paper.","color: red");
-            addPointsToWinnerScore(0);
+            chooseWinner(COMPUTER_WIN);
         }
-    }else if(playerChoice==2){
-        if(computerChoice==0){
+    }else if(playerChoice==SCISSORS){
+        if(computerChoice==ROCK){
             console.log("%cYou Lose! Rock beats Scissors.","color: red");
-            addPointsToWinnerScore(0);
+            chooseWinner(COMPUTER_WIN);
         }else{
             console.log("%cYou Win! Scissors beats Paper.","color: green");
-            addPointsToWinnerScore(1);
+            chooseWinner(PLAYER_WIN);
         }
     }else{
-        console.log("Invalid input! No point's added.");
+        console.log("Invalid input!");
     }
 
 }
-// 0 equals computer-win
-// 1 equals player-win
-function addPointsToWinnerScore(winner){
+function chooseWinner(winner){
 
-    if(winner==0){
+    if(winner==COMPUTER_WIN){
         computerScore++;
     }else{
         playerScore++;
