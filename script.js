@@ -9,32 +9,17 @@ const PLAYER_WIN = 1;
 let playerScore;
 let computerScore;
 
+const buttons = document.querySelectorAll("button");
+buttons.forEach(button => button.addEventListener("click",function(){
+    playRound(+this.value,getComputerChoice());
+}));
+
 function getComputerChoice(){
 
     return Math.floor(Math.random()*3);
 
 }
-function getPlayerChoice(){
 
-    let playerChoice = prompt("What is your choice? (type: rock, paper or scissors)");
-    
-    if(playerChoice){
-        playerChoice = playerChoice.toLowerCase();
-    }else{
-        return INVALID_INPUT;
-    }
-
-    if(playerChoice=="rock"){
-        return ROCK;
-    }else if(playerChoice=="paper"){
-        return PAPER;
-    }else if(playerChoice=="scissors"){
-        return SCISSORS;
-    }else{
-        return INVALID_INPUT;
-    }
-
-}
 function playRound(playerChoice,computerChoice){
 
     if(playerChoice==computerChoice){
@@ -55,7 +40,7 @@ function playRound(playerChoice,computerChoice){
             console.log("%cYou Lose! Scissors beats Paper.","color: red");
             chooseWinner(COMPUTER_WIN);
         }
-    }else if(playerChoice==SCISSORS){
+    }else{
         if(computerChoice==ROCK){
             console.log("%cYou Lose! Rock beats Scissors.","color: red");
             chooseWinner(COMPUTER_WIN);
@@ -63,8 +48,6 @@ function playRound(playerChoice,computerChoice){
             console.log("%cYou Win! Scissors beats Paper.","color: green");
             chooseWinner(PLAYER_WIN);
         }
-    }else{
-        console.log("Invalid input!");
     }
 
 }
