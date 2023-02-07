@@ -14,43 +14,55 @@ buttons.forEach(button => button.addEventListener("click",function(){
     playRound(+this.value,getComputerChoice());
 }));
 
+const resultContainer = document.querySelector(".result");
+
 function getComputerChoice(){
 
     return Math.floor(Math.random()*3);
 
 }
 
+function updateResults(message, color){
+
+    const resultInfo = document.createElement("p");
+    resultInfo.textContent = message;
+    resultInfo.style.color = color;
+    resultContainer.appendChild(resultInfo);
+
+}
+
 function playRound(playerChoice,computerChoice){
 
     if(playerChoice==computerChoice){
-        console.log("%cIt's a tie!","color: goldenrod");
+        updateResults("It's a tie!", "goldenrod");
     }else if(playerChoice==ROCK){
         if(computerChoice==PAPER){
-            console.log("%cYou Lose! Paper beats Rock.","color: red");
+            updateResults("You Lose! Paper beats Rock.", "red");
             chooseWinner(COMPUTER_WIN);
         }else{
-            console.log("%cYou Win! Rock beats Scissors.","color: green");
+            updateResults("You Win! Rock beats Scissors.", "green");
             chooseWinner(PLAYER_WIN);
         }
     }else if(playerChoice==PAPER){
         if(computerChoice==ROCK){
-            console.log("%cYou Win! Paper beats Rock.","color: green");
+            updateResults("You Win! Paper beats Rock", "green");
             chooseWinner(PLAYER_WIN);
         }else{
-            console.log("%cYou Lose! Scissors beats Paper.","color: red");
+            updateResults("You Lose! Scissors beats Paper", "red");
             chooseWinner(COMPUTER_WIN);
         }
     }else{
         if(computerChoice==ROCK){
-            console.log("%cYou Lose! Rock beats Scissors.","color: red");
+            updateResults("You Lose! Rock beats Scissors.", "red");
             chooseWinner(COMPUTER_WIN);
         }else{
-            console.log("%cYou Win! Scissors beats Paper.","color: green");
+            updateResults("You Win! Scissors beats Paper.", "green");
             chooseWinner(PLAYER_WIN);
         }
     }
 
 }
+
 function chooseWinner(winner){
 
     if(winner==COMPUTER_WIN){
@@ -60,6 +72,7 @@ function chooseWinner(winner){
     }
 
 }
+
 function game(){
 
     console.clear();
