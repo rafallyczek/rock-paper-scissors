@@ -6,8 +6,8 @@ const INVALID_INPUT = -1;
 const COMPUTER_WIN = 0;
 const PLAYER_WIN = 1;
 
-let playerScore;
-let computerScore;
+let playerScore = 0;
+let computerScore = 0;
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach(button => button.addEventListener("click",function(){
@@ -15,6 +15,7 @@ buttons.forEach(button => button.addEventListener("click",function(){
 }));
 
 const resultContainer = document.querySelector(".result");
+const scoreContainer = document.querySelector(".score");
 
 function getComputerChoice(){
 
@@ -70,6 +71,14 @@ function chooseWinner(winner){
     }else{
         playerScore++;
     }
+
+    displayScore();
+
+}
+
+function displayScore(){
+
+    scoreContainer.textContent = `Current score is: player ${playerScore}:${computerScore} computer`;
 
 }
 
