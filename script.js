@@ -7,10 +7,13 @@ const PLAYER_WIN = 1;
 let playerScore = 0;
 let computerScore = 0;
 
-const buttons = document.querySelectorAll("button");
-buttons.forEach(button => button.addEventListener("click",function(){
+const playButtons = document.querySelectorAll(".playButton");
+playButtons.forEach(button => button.addEventListener("click",function(){
     playRound(+this.value,getComputerChoice());
 }));
+
+const playAgainButton = document.querySelector(".playAgainButton");
+playAgainButton.addEventListener("click",reset);
 
 const resultContainer = document.querySelector(".result");
 const scoreContainer = document.querySelector(".score");
@@ -88,5 +91,19 @@ function checkGameWinner(){
         winnerContainer.style.backgroundColor = "red";
     }
     scoreContainer.textContent = `Final score is: player ${playerScore}:${computerScore} computer`;
+    playButtons.forEach(button => button.disabled = true);
+    playAgainButton.disabled = false;
+
+}
+
+function reset(){
+
+    playerScore = 0;
+    computerScore = 0;
+    resultContainer.replaceChildren();
+    scoreContainer.textContent = "";
+    winnerContainer.textContent = "";
+    playAgainButton.disabled = true;
+    playButtons.forEach(button => button.disabled = false);
 
 }
