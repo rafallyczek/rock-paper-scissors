@@ -1,7 +1,5 @@
 const ROCK = 0;
 const PAPER = 1;
-const SCISSORS = 2;
-const INVALID_INPUT = -1;
 
 const COMPUTER_WIN = 0;
 const PLAYER_WIN = 1;
@@ -90,30 +88,5 @@ function checkGameWinner(){
         winnerContainer.style.backgroundColor = "red";
     }
     scoreContainer.textContent = `Final score is: player ${playerScore}:${computerScore} computer`;
-
-}
-
-function game(){
-
-    console.clear();
-    playerScore = 0;
-    computerScore = 0;
-
-    for(let i=0;i<5;i++){
-        playRound(getPlayerChoice(),getComputerChoice());
-        if(i!=4){
-            console.log(`Current score is: player ${playerScore}:${computerScore} computer`);
-        }
-    }
-
-    console.log(`Final score is: player ${playerScore}:${computerScore} computer`);
-
-    if(playerScore>computerScore){
-        console.log("%cYou win!","background: green; color: black");
-    }else if(playerScore<computerScore){
-        console.log("%cYou lose!","background: red; color: black");
-    }else{
-        console.log("%cIt's a tie!","background: goldenrod; color: black");
-    }
 
 }
