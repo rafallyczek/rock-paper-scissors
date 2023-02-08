@@ -1,0 +1,73 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: #666666;
+    font-family: "Roboto";
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #0d0d0d;
+}
+.header > p{
+    margin-bottom: 25px;
+}
+.content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.footer{
+    background-color: #404040;
+    color: #0d0d0d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+.result, .score, .winner{
+    width: 500px;
+    background-color: #404040;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.score, .winner{
+    height: 50px;
+}
+.result{
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.result > p{
+    margin: 5px;
+}
+.winner, .score{
+    visibility: hidden;
+}
+.score{
+    color: darkgray;
+}
+.buttons{
+    background-color: #404040;
+    padding: 5px;
+    width: 490px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+a{
+    text-decoration: none;
+    color: lightgrey;
+}
+button:disabled{
+    color: darkgray;
+}

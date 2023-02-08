@@ -31,6 +31,7 @@ function updateResults(message, color){
     resultInfo.textContent = message;
     resultInfo.style.color = color;
     resultContainer.appendChild(resultInfo);
+    scoreContainer.style.visibility = "visible";
 
 }
 
@@ -40,26 +41,26 @@ function playRound(playerChoice,computerChoice){
         updateResults("It's a tie!", "goldenrod");
     }else if(playerChoice==ROCK){
         if(computerChoice==PAPER){
-            updateResults("You Lose! Paper beats Rock.", "red");
+            updateResults("You Lose! Paper beats Rock.", "#ff3333");
             chooseRoundWinner(COMPUTER_WIN);
         }else{
-            updateResults("You Win! Rock beats Scissors.", "green");
+            updateResults("You Win! Rock beats Scissors.", "lightgreen");
             chooseRoundWinner(PLAYER_WIN);
         }
     }else if(playerChoice==PAPER){
         if(computerChoice==ROCK){
-            updateResults("You Win! Paper beats Rock", "green");
+            updateResults("You Win! Paper beats Rock", "lightgreen");
             chooseRoundWinner(PLAYER_WIN);
         }else{
-            updateResults("You Lose! Scissors beats Paper", "red");
+            updateResults("You Lose! Scissors beats Paper", "#ff3333");
             chooseRoundWinner(COMPUTER_WIN);
         }
     }else{
         if(computerChoice==ROCK){
-            updateResults("You Lose! Rock beats Scissors.", "red");
+            updateResults("You Lose! Rock beats Scissors.", "#ff3333");
             chooseRoundWinner(COMPUTER_WIN);
         }else{
-            updateResults("You Win! Scissors beats Paper.", "green");
+            updateResults("You Win! Scissors beats Paper.", "lightgreen");
             chooseRoundWinner(PLAYER_WIN);
         }
     }
@@ -85,14 +86,15 @@ function checkGameWinner(){
         return;
     }else if(playerScore>computerScore){
         winnerContainer.textContent = "You won the game!";
-        winnerContainer.style.backgroundColor = "green";
+        winnerContainer.style.backgroundColor = "lightgreen";
     }else{
         winnerContainer.textContent = "You lost the game!";
-        winnerContainer.style.backgroundColor = "red";
+        winnerContainer.style.backgroundColor = "#ff3333";
     }
     scoreContainer.textContent = `Final score is: player ${playerScore}:${computerScore} computer`;
     playButtons.forEach(button => button.disabled = true);
     playAgainButton.disabled = false;
+    winnerContainer.style.visibility = "visible";
 
 }
 
@@ -105,5 +107,7 @@ function reset(){
     winnerContainer.textContent = "";
     playAgainButton.disabled = true;
     playButtons.forEach(button => button.disabled = false);
+    winnerContainer.style.visibility = "hidden";
+    scoreContainer.style.visibility = "hidden";
 
 }

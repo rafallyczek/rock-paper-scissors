@@ -5,17 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <h1>Rock Paper Scissors game</h1>
-    <p>To play the game open developer's console and click play button.</p>
-    <button value="0" class="playButton">Rock</button>
-    <button value="1" class="playButton">Paper</button>
-    <button value="2" class="playButton">Scissors</button>
-    <button class="playAgainButton" disabled>Play again</button>
-    <div class="result"></div>
-    <div class="score"></div>
-    <div class="winner"></div>
+    <div class="header">
+        <h1>Rock Paper Scissors</h1>
+        <p>To play the game click given buttons. Computer choice will be randomized.</p>
+    </div>
+    <div class="content">
+        <div class="winner"></div>
+        <div class="score"></div>
+        <div class="buttons">
+            <button value="0" class="playButton">Rock</button>
+            <button value="1" class="playButton">Paper</button>
+            <button value="2" class="playButton">Scissors</button>
+            <button class="playAgainButton" disabled>Play again</button>
+        </div>
+        <div class="result"></div>
+    </div>
+    <div class="footer">
+        <div>
+            Made by <a href="https://github.com/rafallyczek">rafallyczek</a>
+        </div>
+        <div>
+            Copyright © <a href="https://www.theodinproject.com/">The Odin Project</a> 2023
+        </div>
+    </div>
 </body>
 </html>
