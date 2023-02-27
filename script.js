@@ -1,3 +1,7 @@
+/* ------------------
+       VARIABLES 
+   ------------------ */
+
 const ROCK = 0;
 const PAPER = 1;
 
@@ -7,6 +11,14 @@ const PLAYER_WIN = 1;
 let playerScore = 0;
 let computerScore = 0;
 
+const resultContainer = document.querySelector(".result");
+const scoreContainer = document.querySelector(".score");
+const winnerContainer = document.querySelector(".winner");
+
+/* ------------------
+       LISTENERS 
+   ------------------ */
+
 const playButtons = document.querySelectorAll(".playButton");
 playButtons.forEach(button => button.addEventListener("click",function(){
     playRound(+this.value,getComputerChoice());
@@ -15,9 +27,9 @@ playButtons.forEach(button => button.addEventListener("click",function(){
 const playAgainButton = document.querySelector(".playAgainButton");
 playAgainButton.addEventListener("click",reset);
 
-const resultContainer = document.querySelector(".result");
-const scoreContainer = document.querySelector(".score");
-const winnerContainer = document.querySelector(".winner");
+/* ------------------
+       FUNCTIONS 
+   ------------------ */
 
 function getComputerChoice(){
 
@@ -41,26 +53,26 @@ function playRound(playerChoice,computerChoice){
         updateResults("It's a tie!", "goldenrod");
     }else if(playerChoice==ROCK){
         if(computerChoice==PAPER){
-            updateResults("You Lose! Paper beats Rock.", "#ff3333");
+            updateResults("You Lose! Paper beats Rock.", "#ff8080");
             chooseRoundWinner(COMPUTER_WIN);
         }else{
-            updateResults("You Win! Rock beats Scissors.", "lightgreen");
+            updateResults("You Win! Rock beats Scissors.", "#86f986");
             chooseRoundWinner(PLAYER_WIN);
         }
     }else if(playerChoice==PAPER){
         if(computerChoice==ROCK){
-            updateResults("You Win! Paper beats Rock", "lightgreen");
+            updateResults("You Win! Paper beats Rock", "#86f986");
             chooseRoundWinner(PLAYER_WIN);
         }else{
-            updateResults("You Lose! Scissors beats Paper", "#ff3333");
+            updateResults("You Lose! Scissors beats Paper", "#ff8080");
             chooseRoundWinner(COMPUTER_WIN);
         }
     }else{
         if(computerChoice==ROCK){
-            updateResults("You Lose! Rock beats Scissors.", "#ff3333");
+            updateResults("You Lose! Rock beats Scissors.", "#ff8080");
             chooseRoundWinner(COMPUTER_WIN);
         }else{
-            updateResults("You Win! Scissors beats Paper.", "lightgreen");
+            updateResults("You Win! Scissors beats Paper.", "#86f986");
             chooseRoundWinner(PLAYER_WIN);
         }
     }
@@ -86,10 +98,10 @@ function checkGameWinner(){
         return;
     }else if(playerScore>computerScore){
         winnerContainer.textContent = "You won the game!";
-        winnerContainer.style.backgroundColor = "lightgreen";
+        winnerContainer.style.backgroundColor = "#86f986";
     }else{
         winnerContainer.textContent = "You lost the game!";
-        winnerContainer.style.backgroundColor = "#ff3333";
+        winnerContainer.style.backgroundColor = "#ff8080";
     }
     scoreContainer.textContent = `Final score is: player ${playerScore}:${computerScore} computer`;
     playButtons.forEach(button => button.disabled = true);

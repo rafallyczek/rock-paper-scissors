@@ -1,73 +1,135 @@
+/* ------------------
+     GLOBAL STYLES 
+   ------------------ */
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
 body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     margin: 0;
-    background-color: #666666;
+    background-color: #333;
     font-family: "Roboto";
+    color: white;
 }
-.header{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #0d0d0d;
-}
-.header > p{
-    margin-bottom: 25px;
-}
-.content{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-}
-.footer{
-    background-color: #404040;
-    color: #0d0d0d;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-}
-.result, .score, .winner{
-    width: 500px;
-    background-color: #404040;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.score, .winner{
-    height: 50px;
-}
-.result{
-    min-height: 100px;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-}
-.result > p{
-    margin: 5px;
-}
-.winner, .score{
-    visibility: hidden;
-}
-.score{
-    color: darkgray;
-}
-.buttons{
-    background-color: #404040;
-    padding: 5px;
-    width: 490px;
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-}
+
+/* ------------------
+       TYPOGRAPHY 
+   ------------------ */
+
 a{
     text-decoration: none;
     color: lightgrey;
 }
+a:hover{
+    color: #bfbfbf;
+}
+
 button:disabled{
-    color: darkgray;
+    color: #999;
+}
+
+.font-clr-light{
+    color: #999;
+}
+
+.winner{
+    color: #333;
+}
+
+/* ------------------
+         LAYOUT 
+   ------------------ */
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header > p{
+    margin-bottom: 25px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.result, .score, .winner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+}
+
+.winner{
+    height: 30px;
+    width: 160px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.result{
+    
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.result > p{
+    margin: 5px;
+}
+
+.score{
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 490px;
+}
+
+/* ------------------
+       COMPONENTS 
+   ------------------ */
+
+.winner, .score{
+    visibility: hidden;
+}
+
+button{
+    cursor: pointer;
+    padding: 5px 10px;
+    border: none;
+    background-color: #999;
+    width: 85px;
+}
+
+button:hover{
+    background-color: #888;
+}
+
+button:disabled{
+    background-color: #555;
 }
