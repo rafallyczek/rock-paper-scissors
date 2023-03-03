@@ -22,10 +22,16 @@ body{
 
 a{
     text-decoration: none;
-    color: lightgrey;
+    color: #777;
 }
+
 a:hover{
-    color: #bfbfbf;
+    color: #888;
+}
+
+p{
+    font-size: 1.3rem;
+    text-align: center;
 }
 
 button:disabled{
@@ -33,7 +39,7 @@ button:disabled{
 }
 
 .font-clr-light{
-    color: #999;
+    color: white;
 }
 
 .winner{
@@ -50,8 +56,12 @@ button:disabled{
     align-items: center;
 }
 
+p{
+    margin: .2em;
+}
+
 .header > p{
-    margin-bottom: 25px;
+    margin-bottom: 2em;
 }
 
 .content{
@@ -60,14 +70,6 @@ button:disabled{
     align-items: center;
     gap: 5px;
     flex: 1;
-}
-
-.footer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
 }
 
 .result, .score, .winner{
@@ -79,10 +81,10 @@ button:disabled{
 
 .winner{
     height: 30px;
-    width: 160px;
-    padding: 5px 10px;
+    width: 170px;
+    padding: .5em 1em;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: .7em;
 }
 
 .result{
@@ -93,20 +95,20 @@ button:disabled{
 }
 
 .result > p{
-    margin: 5px;
+    margin: .2em;
 }
 
 .score{
     height: 20px;
-    margin-bottom: 10px;
+    margin-bottom: .7em;
 }
 
 .buttons{
     display: flex;
     justify-content: center;
     gap: 5px;
-    margin-bottom: 10px;
-    padding: 5px;
+    margin-bottom: .5em;
+    padding: .5em;
     width: 490px;
 }
 
@@ -120,7 +122,7 @@ button:disabled{
 
 button{
     cursor: pointer;
-    padding: 5px 10px;
+    padding: .4em .8em;
     border: none;
     background-color: #999;
     width: 85px;
