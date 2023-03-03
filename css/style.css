@@ -76,13 +76,11 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 500px;
 }
 
 .winner{
-    height: 30px;
-    width: 170px;
-    padding: .5em 1em;
+    /* height: 30px; */
+    padding: .4em .8em;
     border-radius: 5px;
     margin-bottom: .7em;
 }
@@ -109,7 +107,6 @@ p{
     gap: 5px;
     margin-bottom: .5em;
     padding: .5em;
-    width: 490px;
 }
 
 /* ------------------
@@ -125,7 +122,7 @@ button{
     padding: .4em .8em;
     border: none;
     background-color: #999;
-    width: 85px;
+    min-width: 85px;
 }
 
 button:hover{
